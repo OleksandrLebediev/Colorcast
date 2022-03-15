@@ -31,17 +31,17 @@ public class GameAnalyticsEventManager : MonoBehaviour
 
     private void OnLevelStart(int level, LevelData levelData)
     {
-        //TinySauce.OnGameStarted(levelNumber: level.ToString());
+        TinySauce.OnGameStarted(levelNumber: level.ToString());
     }
 
     private void OnLevelComplete(LevelData levelData, LevelRewardData rewardData)
     {
-        //TinySauce.OnGameFinished(true, rewardData.Starts, levelNumber: rewardData.Level.ToString());
+        TinySauce.OnGameFinished(true, rewardData.Starts, levelNumber: rewardData.Level.ToString());
     }
 
     private void OnLevelFail(int level, LevelData levelData)
     {
-       // TinySauce.OnGameFinished(false,0 ,levelNumber: level.ToString());
+        TinySauce.OnGameFinished(false, 0, levelNumber: level.ToString());
     }
 
     //private void OnLevelRestart(int level, LevelData levelData)
