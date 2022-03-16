@@ -56,9 +56,10 @@ public class Paintbrush : MonoBehaviour, IPaintbrushPaintingData
         StopPaintingProcess?.Invoke();
     }
 
-    public void SetColor(Color color)
+    public void SetDropParameters(Color color, Vector3 dropSize)
     {
         _dropColor = color;
+        _dropSize = dropSize;
     }
 
     public void OnStartPaintingProcess()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +7,7 @@ public class EmptyPicturePart : MonoBehaviour, IPicturePartData, IPicturePart
     [SerializeField] private int _number;
     [SerializeField] private Transform _paintbrushPosition;
     [SerializeField] private Color _color;
+    [SerializeField] private Vector3 _dropSize = new Vector3(1, 1, 1);
 
     private PaintingÀrea _paintingÀrea;
     private ScaleMark[] _scaleMarks;
@@ -17,8 +16,9 @@ public class EmptyPicturePart : MonoBehaviour, IPicturePartData, IPicturePart
     public int Number { get => _number; }
     public Vector3 PaintbrushPosition { get => _paintbrushPosition.position; }
     public Color Color { get => _color; }
+    public Vector3 DropSize { get => _dropSize; }
 
-    public event UnityAction<StateScaleMarks> ÑhangedStateMarks; 
+    public event UnityAction<StateScaleMarks> ÑhangedStateMarks;
     public event UnityAction DropOutsidePart;
 
     private void Awake()
@@ -74,7 +74,7 @@ public class EmptyPicturePart : MonoBehaviour, IPicturePartData, IPicturePart
                 _stateMarks = StateScaleMarks.Passive;
                 ÑhangedStateMarks?.Invoke(_stateMarks);
             }
-        }       
+        }
     }
 
     public void Hide()

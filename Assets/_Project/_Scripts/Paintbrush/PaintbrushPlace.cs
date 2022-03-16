@@ -12,6 +12,7 @@ public class PaintbrushPlace : MonoBehaviour
 
     private Vector3 _paintbrushLastPosition;
     private Color _paintbrushLastColor;
+    private Vector3 _paintbrushLastDropSize;
 
     private void OnEnable()
     {
@@ -48,16 +49,18 @@ public class PaintbrushPlace : MonoBehaviour
     private void UpdateStatePaintbrush(EmptyPicturePart picturePart)
     {
         _paintbrush.Move(picturePart.PaintbrushPosition);
-        _paintbrush.SetColor(picturePart.Color);
+        _paintbrush.SetDropParameters(picturePart.Color, picturePart.DropSize);
+
 
         _paintbrushLastColor = picturePart.Color;
         _paintbrushLastPosition = picturePart.PaintbrushPosition;
+        _paintbrushLastDropSize = picturePart.DropSize;
     }
 
     private void UpdateStatePaintbrush(Paintbrush paintbrush)
     {
         paintbrush.SetPosition(_paintbrushLastPosition);
-        paintbrush.SetColor(_paintbrushLastColor);
+        paintbrush.SetDropParameters(_paintbrushLastColor, _paintbrushLastDropSize);
     }
 
     private void SubscribePaintbrush(Paintbrush paintbrush)

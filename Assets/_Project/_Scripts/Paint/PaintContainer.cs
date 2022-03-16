@@ -43,6 +43,7 @@ public class PaintContainer : MonoBehaviour
     {
         PaintDrop paintDrop = _pool.Get();
         paintDrop.transform.position = paintbrushPaintingData.PointSpawnPaintDrop;
+        paintDrop.transform.localScale = paintbrushPaintingData.DropSize;
         paintDrop.transform.SetParent(transform);
         _paintDrops.Add(paintDrop);
         _paintMaterial.color = paintbrushPaintingData.DropColor;
